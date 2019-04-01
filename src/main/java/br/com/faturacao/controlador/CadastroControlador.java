@@ -1,7 +1,8 @@
 package br.com.faturacao.controlador;
 
+import br.com.faturacao.apoio.Converter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,20 +14,30 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CadastroControlador extends HttpServlet {
 
+    private Telas codTela;
+    RequestDispatcher dispatcher = null;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CadastroControlador</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CadastroControlador at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+
+        codTela = Telas.getOpcao(Converter.toInt(request.getParameter("codTela")));
+
+        if (null != codTela) switch (codTela) {
+            case CADASTRO_FORMULACAO:
+                response.sendRedirect(request.getContextPath() + TelasCadastro.FORMULACAO.getTela());
+                break;
+            case CADASTRO_FORNECEDOR:
+                response.sendRedirect(request.getContextPath() + TelasCadastro.FORNECEDOR.getTela());
+                break;
+            case CADASTRO_MATERIA_PRIMA:
+                response.sendRedirect(request.getContextPath() + TelasCadastro.MATERIA_PRIMA.getTela());
+                break;
+            case CADASTRO_PRODUTO:
+                response.sendRedirect(request.getContextPath() + TelasCadastro.PRODUTO.getTela());                
+                break;
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
@@ -46,5 +57,4 @@ public class CadastroControlador extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
 }

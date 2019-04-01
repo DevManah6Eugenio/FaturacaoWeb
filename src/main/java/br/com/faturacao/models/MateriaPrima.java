@@ -8,11 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class MateriaPrima implements Serializable {
+public class MateriaPrima implements Serializable, AutoCloseable  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String codigo;
     private String nome;
     private String unidadeCompra;
     private Double valor;
@@ -71,5 +72,18 @@ public class MateriaPrima implements Serializable {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void close() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }

@@ -12,6 +12,17 @@
         <title>Cadastro Produto</title>
     </head>
     <body>
-        <h1>Produto</h1>
+        <form>
+            <h1>Cadastro Produto</h1>
+            <input type="hidden" name="id">
+            <label>Codigo</label>
+            <input type="text" name="codigo">
+            <label>Descrição</label>
+            <input type="text" name="descricao">
+
+            DOM de materia prima
+            
+            <button>Salvar</button>
+        </form>
     </body>
 </html>
