@@ -4,7 +4,7 @@ package br.com.faturacao.controlador;
  *
  * @author manasses
  */
-public enum Acao {
+public enum AcaoControlador {
     
     CADASTRAR("cadastrar"),
     EDITAR("editar"),
@@ -14,7 +14,7 @@ public enum Acao {
     
     private final String acao;
     
-    Acao(String acao) {
+    AcaoControlador(String acao) {
         this.acao = acao;
     }
     
