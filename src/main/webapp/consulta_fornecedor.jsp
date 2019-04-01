@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cad_materiaprima
-    Created on : 29/03/2019, 13:50:22
-    Author     : manases
+    Document   : consulta_fornecedor
+    Created on : 31/03/2019, 20:27:12
+    Author     : manasses
 --%>
 
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Cadastro Materia Prima</title>
+        <title>Consulta Fornecedor</title>
     </head>
     <body>
-        <h1>Materia Prima</h1>
+        <h1>Consulta Fornecedor</h1>
     </body>
 </html>
