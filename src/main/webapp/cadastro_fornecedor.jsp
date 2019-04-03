@@ -13,7 +13,8 @@
     </head>
     <body>
         <h1>Cadastro Fornecedor</h1>
-        <form>
+        <form action="FornecedorControlador" method="post">
+            <input type="hidden" name="acao" value="cadastrar">
             <label>CPF/CNPJ</label>
             <input type="text" name="cnpj">
             <label>Empresa</label>

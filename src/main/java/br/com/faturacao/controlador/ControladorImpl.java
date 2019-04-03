@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author manases
  * @param <T>
  */
-public abstract class ControladorImpl <T> extends HttpServlet  implements ControladorInterface<T> {
+public abstract class ControladorImpl <T,J> extends HttpServlet  implements ControladorInterface<T> {
 
+    private Object bo;
+    
     @Override
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) {
         try {

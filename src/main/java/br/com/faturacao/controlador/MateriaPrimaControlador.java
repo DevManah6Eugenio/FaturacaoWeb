@@ -1,6 +1,7 @@
 package br.com.faturacao.controlador;
 
 import br.com.faturacao.apoio.Converter;
+import br.com.faturacao.bo.MateriaPrimaBO;
 import br.com.faturacao.models.MateriaPrima;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author manases
  */
-public class MateriaPrimaControlador extends Controlador<MateriaPrima> {
+public class MateriaPrimaControlador extends Controlador<MateriaPrima,MateriaPrimaBO> {
 
     @Override
     public MateriaPrima montarObjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {

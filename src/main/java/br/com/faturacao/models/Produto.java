@@ -50,4 +50,10 @@ public class Produto implements Serializable {
     public void setFormulacoes(List<Formulacao> formulacoes) {
         this.formulacoes = formulacoes;
     }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "id=" + id + ", nome=" + nome + ", materiasPrima=" + materiasPrima + ", formulacoes=" + formulacoes + '}';
+    }
+    
 }

@@ -137,4 +137,11 @@ public class Formulacao implements Serializable {
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
+
+    @Override
+    public String toString() {
+        return "Formulacao{" + "id=" + id + ", quantidadeEstimadaProduzida=" + quantidadeEstimadaProduzida + ", icm=" + icm + ", pis=" + pis + ", confis=" + confis + ", comissao=" + comissao + ", margemLucro=" + margemLucro + ", despesaFixa=" + despesaFixa + ", outrosDescontos=" + outrosDescontos + ", custoEstimado=" + custoEstimado + ", obs=" + obs + ", valorVenda=" + valorVenda + ", produtos=" + produtos + '}';
+    }
+    
+    
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author manases
  * @param <T>
  */
-public abstract class Controlador <T> extends ControladorImpl <T>  {
+public abstract class Controlador <T,J> extends ControladorImpl <T,J>  {
     
     private String acao;
     
@@ -20,7 +20,7 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
 
         try {
             acao = request.getParameter("acao");
-
+            
             if (acao.equalsIgnoreCase(AcaoControlador.CADASTRAR.getAcao())) {
                 this.cadastrar(request, response);
             } else if (acao.equals(AcaoControlador.CARREGAR.getAcao())) {
@@ -35,12 +35,6 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
         } catch (Exception e) {
 //            throw new Exception();
         }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     @Override

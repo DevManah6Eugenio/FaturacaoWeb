@@ -12,8 +12,9 @@
         <title>Cadastro Produto</title>
     </head>
     <body>
-        <form>
+        <form action="ProdutoControlador" method="post">
             <h1>Cadastro Produto</h1>
+            <input type="hidden" name="acao" value="cadastrar">
             <input type="hidden" name="id">
             <label>Codigo</label>
             <input type="text" name="codigo">

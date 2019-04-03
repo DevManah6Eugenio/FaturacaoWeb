@@ -13,5 +13,8 @@
     </head>
     <body>
         <h1>Formulação</h1>
+        <form action="FormulacaoControlador" method="post">
+            <input type="hidden" name="acao" value="cadastrar">
+        </form>
     </body>
 </html>
