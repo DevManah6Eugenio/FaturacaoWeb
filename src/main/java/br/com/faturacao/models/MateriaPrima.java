@@ -62,7 +62,7 @@ public class MateriaPrima implements Serializable, AutoCloseable  {
 
     @Override
     public String toString() {
-        return "MateriaPrima{" + "id=" + id + ", nome=" + nome + ", unidadeCompra=" + unidadeCompra + ", valor=" + valor + ", fornecedores=" + fornecedores + '}';
+        return "MateriaPrima{" + "id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", unidadeCompra=" + unidadeCompra + ", valor=" + valor + ", fornecedores=" + fornecedores + '}';
     }
 
     @Override

@@ -6,8 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author manases
+ * @param <T>
  */
-public interface ControladorInterface {
+public interface ControladorInterface <T>{
  
     abstract void cadastrar(HttpServletRequest request, HttpServletResponse response);
     
@@ -19,5 +20,5 @@ public interface ControladorInterface {
 
     abstract void deletar(HttpServletRequest request, HttpServletResponse response);
     
-    abstract Object montarObjeto(HttpServletRequest request, HttpServletResponse response);
+    abstract T montarObjeto(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

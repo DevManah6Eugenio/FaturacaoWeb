@@ -14,7 +14,7 @@
     <body>
         <h1>Cadastro Materia Prima</h1>
         <form action="MateriaPrimaControlador" method="post">
-            <input type="hidden" name="cadastrar">
+            <input type="hidden" name="acao" value="cadastrar">
             <input type="hidden" name="id_materia_prima">
             <label>Codigo</label>
             <input type="text" name="codigo">

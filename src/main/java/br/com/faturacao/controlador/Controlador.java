@@ -1,10 +1,7 @@
 package br.com.faturacao.controlador;
 
-import br.com.faturacao.apoio.Converter;
-import br.com.faturacao.models.MateriaPrima;
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author manases
  * @param <T>
  */
-public class Controlador <T> extends ControladorImpl <T>  {
+public abstract class Controlador <T> extends ControladorImpl <T>  {
     
     private String acao;
     
@@ -37,21 +34,6 @@ public class Controlador <T> extends ControladorImpl <T>  {
             }
         } catch (Exception e) {
 //            throw new Exception();
-        }
-    }
-
-    private MateriaPrima doMateriaPrima(HttpServletRequest request) throws Exception {
-
-        try {
-            MateriaPrima materiaPrima = new MateriaPrima();
-            materiaPrima.setId(Converter.toInt(request.getParameter("id_materia_prima")));
-            materiaPrima.setNome(request.getParameter("descricao"));
-            materiaPrima.setCodigo(request.getParameter("codigo"));
-            materiaPrima.setUnidadeCompra(request.getParameter("unidade_compra"));
-            materiaPrima.setValor(Converter.toDouble(request.getParameter("valor")));
-            return materiaPrima;
-        } catch (Exception ex) {
-            throw new Exception();
         }
     }
 
