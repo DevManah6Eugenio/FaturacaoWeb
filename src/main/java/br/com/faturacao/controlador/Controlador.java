@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author manases
  * @param <T>
  */
-public abstract class Controlador <T,J> extends ControladorImpl <T,J>  {
+public abstract class Controlador <T> extends ControladorImpl <T>  {
     
     private String acao;
     

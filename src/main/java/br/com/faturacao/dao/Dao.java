@@ -1,6 +1,7 @@
 package br.com.faturacao.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,5 +16,7 @@ public interface Dao <T> {
     
     public void excluir(T objeto);
     
-    public ArrayList<T> carregar(int primeiroResutlado, int ultimoResultado, T filtro);
+    public List<T> listar(int primeiroResutlado, int ultimoResultado, T filtro);
+     
+    public T carregar(T objeto);
 }

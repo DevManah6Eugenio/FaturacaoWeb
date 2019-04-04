@@ -1,41 +1,36 @@
 package br.com.faturacao.bo;
 
-import br.com.faturacao.models.MateriaPrima;
 import java.util.List;
 
 /**
  *
  * @author manasses
+ * @param <T>
  */
-public class MateriaPrimaBO implements BoInterface<MateriaPrima> {
+public abstract class BoImplemente<T> implements BoInterface<T> {
 
     @Override
-    public void cadastrar(MateriaPrima obj) {
-        System.out.println("cadastrar");
-    }
-
-    @Override
-    public void editar(MateriaPrima obj) {
-        System.out.println("editar");
+    public void cadastrar(T obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public MateriaPrima carregar(MateriaPrima obj) {
-        System.out.println("carregar");
+    public void editar(T obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<MateriaPrima> listar(MateriaPrima obj) {
-        System.out.println("listar");
+    public T carregar(T obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deletar(MateriaPrima obj) {
-        System.out.println("deletar");
+    public List<T> listar(T obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public void deletar(T obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

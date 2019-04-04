@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author manases
  */
-public class ProdutoControlador extends Controlador<Produto,ProdutoBO> {
+public class ProdutoControlador extends Controlador<Produto> {
 
+    {
+        this.bo = new ProdutoBO();
+    }
+    
     @Override
     public Produto montarObjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {

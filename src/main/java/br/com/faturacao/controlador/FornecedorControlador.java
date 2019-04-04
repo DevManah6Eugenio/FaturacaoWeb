@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author manases
  */
-public class FornecedorControlador extends Controlador<Fornecedor,FornecedorBO> {
-
+public class FornecedorControlador extends Controlador<Fornecedor> {
+ 
+    {
+        this.bo = new FornecedorBO();
+    }
+    
     @Override
     public Fornecedor montarObjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {

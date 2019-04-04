@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author manases
  */
-public class FormulacaoControlador extends Controlador<Formulacao,FormulacaoBO> {
+public class FormulacaoControlador extends Controlador<Formulacao> {
 
+    {
+        this.bo = new FormulacaoBO();
+    }
+    
     @Override
     public Formulacao montarObjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {

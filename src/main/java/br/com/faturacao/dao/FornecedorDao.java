@@ -2,6 +2,7 @@ package br.com.faturacao.dao;
 
 import br.com.faturacao.models.Fornecedor;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FornecedorDao implements Dao<Fornecedor>{
 
@@ -21,8 +22,13 @@ public class FornecedorDao implements Dao<Fornecedor>{
     }
 
     @Override
-    public ArrayList<Fornecedor> carregar(int primeiroResutlado, int ultimoResultado, Fornecedor filtro) {
+    public List<Fornecedor> listar(int primeiroResutlado, int ultimoResultado, Fornecedor filtro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public Fornecedor carregar(Fornecedor objeto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
