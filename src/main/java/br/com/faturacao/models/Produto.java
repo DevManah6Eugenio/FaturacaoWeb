@@ -14,6 +14,7 @@ public class Produto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
+    private String codigo;
 
     List<MateriaPrima> materiasPrima;
     
@@ -49,6 +50,14 @@ public class Produto implements Serializable {
 
     public void setFormulacoes(List<Formulacao> formulacoes) {
         this.formulacoes = formulacoes;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     @Override

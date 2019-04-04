@@ -3,6 +3,7 @@ package br.com.faturacao.controlador;
 import br.com.faturacao.apoio.Converter;
 import br.com.faturacao.bo.MateriaPrimaBO;
 import br.com.faturacao.models.MateriaPrima;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,6 +26,9 @@ public class MateriaPrimaControlador extends Controlador<MateriaPrima> {
             materiaPrima.setCodigo(request.getParameter("codigo"));
             materiaPrima.setUnidadeCompra(request.getParameter("unidade_compra"));
             materiaPrima.setValor(Converter.toDouble(request.getParameter("valor")));
+            
+            materiaPrima.setFornecedores(new ArrayList<>());
+            
             return materiaPrima;
         } catch (Exception ex) {
             throw new Exception();
