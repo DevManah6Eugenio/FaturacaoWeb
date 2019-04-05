@@ -1,5 +1,6 @@
 package br.com.faturacao.bo;
 
+import br.com.faturacao.dao.MateriaPrimaDao;
 import br.com.faturacao.models.MateriaPrima;
 import java.util.List;
 
@@ -9,33 +10,35 @@ import java.util.List;
  */
 public class MateriaPrimaBO implements BoInterface<MateriaPrima> {
 
+    private MateriaPrimaDao dao;
+    
+    public MateriaPrimaBO(){
+        dao = new MateriaPrimaDao();
+    }
+    
     @Override
     public void cadastrar(MateriaPrima obj) {
-        System.out.println("cadastrar");
+        dao.salvar(obj);
     }
 
     @Override
     public void editar(MateriaPrima obj) {
-        System.out.println("editar");
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.editar(obj);
     }
 
     @Override
     public MateriaPrima carregar(MateriaPrima obj) {
-        System.out.println("carregar");
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.carregar(obj);
     }
 
     @Override
     public List<MateriaPrima> listar(MateriaPrima obj) {
-        System.out.println("listar");
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.listar(0, 0, obj);
     }
 
     @Override
     public void deletar(MateriaPrima obj) {
-        System.out.println("deletar");
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.excluir(obj);
     }
     
 }

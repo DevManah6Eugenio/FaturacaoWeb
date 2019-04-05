@@ -33,7 +33,7 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
                 this.listar(request, response);
             }
         } catch (Exception e) {
-//            throw new Exception();
+//            
         }
     }
 

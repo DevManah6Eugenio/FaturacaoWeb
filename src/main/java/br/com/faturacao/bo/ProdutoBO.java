@@ -8,6 +8,10 @@ import java.util.List;
  * @author manasses
  */
 public class ProdutoBO implements BoInterface<Produto> {
+    
+    public ProdutoBO() {
+        
+    }
 
     @Override
     public void cadastrar(Produto obj) {

@@ -8,7 +8,7 @@ import java.util.List;
  * @param <T>
  */
 public interface BoInterface <T> {
-
+    
     abstract void cadastrar(T obj);
     
     abstract void editar(T obj);
