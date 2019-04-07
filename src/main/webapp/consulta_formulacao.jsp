@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Consulta Formulação</title>
     </head>
     <body>
-        <h1>Consulta Formulação</h1>
+        <header>
+            <div class="container">
+                <h1 class="titulo">Consulta Formulação</h1>
+            </div>
+        </header>
     </body>
 </html>

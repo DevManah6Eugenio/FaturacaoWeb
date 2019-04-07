@@ -10,7 +10,7 @@ public class JPAUtil {
 
     public static EntityManager getEntityManager() {
         if (emf == null) {
-            emf = Persistence.createEntityManagerFactory("faturacaoWeb");
+            emf = Persistence.createEntityManagerFactory("fat");
         }
         return emf.createEntityManager();
     }

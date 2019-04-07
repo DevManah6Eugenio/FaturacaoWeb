@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MateriaPrimaControlador extends Controlador<MateriaPrima> {
 
-    {
+    public MateriaPrimaControlador() {
         this.bo = new MateriaPrimaBO();
     }
-    
+
     @Override
     public MateriaPrima montarObjeto(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
@@ -26,9 +26,9 @@ public class MateriaPrimaControlador extends Controlador<MateriaPrima> {
             materiaPrima.setCodigo(request.getParameter("codigo"));
             materiaPrima.setUnidadeCompra(request.getParameter("unidade_compra"));
             materiaPrima.setValor(Converter.toDouble(request.getParameter("valor")));
-            
+
             materiaPrima.setFornecedores(new ArrayList<>());
-            
+
             return materiaPrima;
         } catch (Exception ex) {
             throw new Exception();

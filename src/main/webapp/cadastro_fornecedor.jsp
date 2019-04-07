@@ -9,23 +9,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Cadastro Fornecedor</title>
     </head>
     <body>
-        <h1>Cadastro Fornecedor</h1>
+        <header>
+            <div class="container">
+                <h1 class="titulo">Cadastro Fornecedor</h1>
+            </div>
+        </header>
         <form action="FornecedorControlador" method="post">
             <input type="hidden" name="acao" value="cadastrar">
-            <label>CPF/CNPJ</label>
+            <label>CPF/CNPJ:</label>
             <input type="text" name="cnpj">
-            <label>Empresa</label>
+            <label>Empresa:</label>
             <input type="text" name="empresa">
-            <label>Representante</label>
+            <label>Representante:</label>
             <input type="text" name="representante">
             <label>Tel.:</label>
             <input type="tel" name="telefone01">
             <label>Tel.:</label>
             <input type="tel" name="telefone02">
-            <label>Email</label>
+            <label>Email:</label>
             <input type="email" name="email">
             
             DOM materia prima

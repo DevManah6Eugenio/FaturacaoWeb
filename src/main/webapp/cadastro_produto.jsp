@@ -9,11 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Cadastro Produto</title>
     </head>
     <body>
+         <header>
+            <div class="container">
+                <h1 class="titulo">Cadastro Produto</h1>
+            </div>
+        </header>
         <form action="ProdutoControlador" method="post">
-            <h1>Cadastro Produto</h1>
             <input type="hidden" name="acao" value="cadastrar">
             <input type="hidden" name="id">
             <label>Codigo</label>

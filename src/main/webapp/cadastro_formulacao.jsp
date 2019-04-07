@@ -9,10 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Cadastro Formulação</title>
     </head>
     <body>
-        <h1>Formulação</h1>
+        <header>
+            <div class="container">
+                <h1 class="titulo">Formulação</h1>
+            </div>
+        </header>
         <form action="FormulacaoControlador" method="post">
             <input type="hidden" name="acao" value="cadastrar">
         </form>
