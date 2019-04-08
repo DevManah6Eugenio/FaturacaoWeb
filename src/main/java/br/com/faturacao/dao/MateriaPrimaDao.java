@@ -12,22 +12,16 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
 
     @Override
     public void salvar(MateriaPrima objeto) {
+        em = JPAUtil.getEntityManager();
 
-        if (objIsValido(objeto)) {
-
-            em = JPAUtil.getEntityManager();
-
-            try {
-                em.getTransaction().begin();
-                em.persist(objeto);
-                em.getTransaction().commit();
-            } catch (Exception ex) {
-                throw new RuntimeException();
-            } finally {
-                em.close();
-            }
-        } else {
-            new Exception();
+        try {
+            em.getTransaction().begin();
+            em.persist(objeto);
+            em.getTransaction().commit();
+        } catch (Exception ex) {
+            throw new RuntimeException();
+        } finally {
+            em.close();
         }
     }
 
@@ -40,25 +34,26 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
     public void excluir(MateriaPrima objeto) {
 
     }
-//
-//    @Override
-//    public List<MateriaPrima> listar(MateriaPrima filtro) {
-//
-//        List<MateriaPrima> listMateriPrima;
-//        EntityManager em = JPAUtil.getEntityManager();
-//
-//        try {
-//            Query query = em.createQuery("select m from MateriaPrima m ").getResultList();
-//            listMateriPrima = (List<MateriaPrima>) query.getResultList();
-//        } finally {
-//            em.close();
-//        }
-//
-//        return listMateriPrima;
-//    }
 
     @Override
     public MateriaPrima carregar(MateriaPrima objeto) {
         return null;
     }
+
+    @Override
+    public List<MateriaPrima> listar(MateriaPrima filtro) {
+       
+        List<MateriaPrima> listMateriPrima;
+        EntityManager em = JPAUtil.getEntityManager();
+
+        try {
+            Query query = em.createQuery("select m from MateriaPrima m ");
+            listMateriPrima = (List<MateriaPrima>) query.getResultList();
+        } finally {
+            em.close();
+        }
+
+        return listMateriPrima;
+    }
+
 }

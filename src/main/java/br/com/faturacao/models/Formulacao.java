@@ -2,10 +2,12 @@ package br.com.faturacao.models;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Formulacao implements Serializable {
@@ -13,18 +15,30 @@ public class Formulacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "qtd_estimada_produzida", nullable = false)
     private Double quantidadeEstimadaProduzida;
+    @Column(name = "icm")
     private Double icm;
+    @Column(name = "pis")
     private Double pis;
+    @Column(name = "confis")
     private Double confis;
+    @Column(name = "comissao")
     private Double comissao;
+    @Column(name = "margem_lucro")
     private Double margemLucro;
+    @Column(name = "despesa_fixa")
     private Double despesaFixa;
+    @Column(name = "outros_descontos")
     private Double outrosDescontos;
+    @Column(name = "custo_estimado")
     private Double custoEstimado;
+    @Column(name = "observacao")
     private String obs;
+    @Column(name = "valor_venda")
     private Double valorVenda;
 
+    @ManyToMany
     List<Produto> produtos;
 
     public Formulacao() {
@@ -142,6 +156,5 @@ public class Formulacao implements Serializable {
     public String toString() {
         return "Formulacao{" + "id=" + id + ", quantidadeEstimadaProduzida=" + quantidadeEstimadaProduzida + ", icm=" + icm + ", pis=" + pis + ", confis=" + confis + ", comissao=" + comissao + ", margemLucro=" + margemLucro + ", despesaFixa=" + despesaFixa + ", outrosDescontos=" + outrosDescontos + ", custoEstimado=" + custoEstimado + ", obs=" + obs + ", valorVenda=" + valorVenda + ", produtos=" + produtos + '}';
     }
-    
-    
+
 }

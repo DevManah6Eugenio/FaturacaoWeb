@@ -19,6 +19,4 @@ public interface Dao <T> {
     public List<T> listar(T filtro);
      
     public T carregar(T objeto);
-    
-    public boolean objIsValido(T objeto);
 }

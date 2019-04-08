@@ -3,7 +3,7 @@ var botaoAdicionar = document.querySelector("#pesquisar");
 botaoAdicionar.addEventListener("click", function () {
     var xhr = new XMLHttpRequest();
     
-    xhr.open("POST", "../MateriaPrimaControlador?acao=listar" + 
+    xhr.open("GET", "../MateriaPrimaControlador?acao=listar" + 
             "&codigo=" + document.querySelector("#codigo").value +
             "&descricao=" + document.querySelector("#descricao").value +
             "&unidade_compra=" + document.querySelector("#unidade_compra").value +
