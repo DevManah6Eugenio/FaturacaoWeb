@@ -20,6 +20,9 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
 
         try {
             acao = request.getParameter("acao");
+            System.out.println("acao: "+ acao);
+            System.out.println("acao: "+ acao);
+            System.out.println("acao: "+ acao);
             
             if (acao.equalsIgnoreCase(AcaoControlador.CADASTRAR.getAcao())) {
                 this.cadastrar(request, response);
@@ -32,6 +35,8 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
             } else if (acao.equals(AcaoControlador.LISTAR.getAcao())) {
                 this.listar(request, response);
             }
+            
+            System.out.println("acao: "+ acao);
         } catch (Exception e) {
 //            
         }

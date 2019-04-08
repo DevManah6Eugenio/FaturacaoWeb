@@ -1,6 +1,6 @@
 <%-- 
-    Document   : consulta_materiaprima
-    Created on : 31/03/2019, 20:26:49
+    Document   : consulta_fornecedor
+    Created on : 31/03/2019, 20:27:12
     Author     : manasses
 --%>
 
@@ -9,13 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Consulta Materia Prima</title>
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <title>Consulta Fornecedor</title>
     </head>
     <body>
-         <header>
+        <header>
             <div class="container">
-                <h1 class="titulo">Consulta Materia Prima</h1>
+                <h1 class="titulo">Consulta Fornecedor</h1>
             </div>
         </header>
     </body>

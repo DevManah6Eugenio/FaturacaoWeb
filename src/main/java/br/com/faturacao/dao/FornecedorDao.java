@@ -41,7 +41,7 @@ public class FornecedorDao implements Dao<Fornecedor>{
     }
 
     @Override
-    public List<Fornecedor> listar(int primeiroResutlado, int ultimoResultado, Fornecedor filtro) {
+    public List<Fornecedor> listar(Fornecedor filtro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

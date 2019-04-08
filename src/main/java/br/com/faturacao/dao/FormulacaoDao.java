@@ -45,7 +45,7 @@ public class FormulacaoDao implements Dao<Formulacao>{
     }
 
     @Override
-    public List<Formulacao> listar(int primeiroResutlado, int ultimoResultado, Formulacao filtro) {
+    public List<Formulacao> listar(Formulacao filtro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

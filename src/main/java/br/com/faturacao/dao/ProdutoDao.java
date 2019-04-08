@@ -40,7 +40,7 @@ public class ProdutoDao implements Dao<Produto>{
     }
 
     @Override
-    public List<Produto> listar(int primeiroResutlado, int ultimoResultado, Produto filtro) {
+    public List<Produto> listar(Produto filtro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

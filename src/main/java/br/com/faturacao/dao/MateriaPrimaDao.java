@@ -4,6 +4,7 @@ import br.com.faturacao.apoio.JPAUtil;
 import br.com.faturacao.models.MateriaPrima;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 public class MateriaPrimaDao implements Dao<MateriaPrima> {
 
@@ -39,20 +40,25 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
     public void excluir(MateriaPrima objeto) {
 
     }
-
-    @Override
-    public List<MateriaPrima> listar(int primeiroResutlado, int ultimoResultado, MateriaPrima filtro) {
-        return null;
-    }
+//
+//    @Override
+//    public List<MateriaPrima> listar(MateriaPrima filtro) {
+//
+//        List<MateriaPrima> listMateriPrima;
+//        EntityManager em = JPAUtil.getEntityManager();
+//
+//        try {
+//            Query query = em.createQuery("select m from MateriaPrima m ").getResultList();
+//            listMateriPrima = (List<MateriaPrima>) query.getResultList();
+//        } finally {
+//            em.close();
+//        }
+//
+//        return listMateriPrima;
+//    }
 
     @Override
     public MateriaPrima carregar(MateriaPrima objeto) {
         return null;
     }
-
-    @Override
-    public boolean objIsValido(MateriaPrima objeto) {
-        return true;
-    }
-
 }

@@ -4,6 +4,8 @@ import br.com.faturacao.apoio.Converter;
 import br.com.faturacao.bo.MateriaPrimaBO;
 import br.com.faturacao.models.MateriaPrima;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,6 +34,28 @@ public class MateriaPrimaControlador extends Controlador<MateriaPrima> {
             return materiaPrima;
         } catch (Exception ex) {
             throw new Exception();
+        }
+    }
+
+    @Override
+    public void cadastrar(HttpServletRequest request, HttpServletResponse response) { 
+        try {
+            MateriaPrima obj = montarObjeto(request, response);
+            bo.cadastrar(obj);
+            response.sendRedirect(request.getContextPath() + TelasConsulta.MATERIA_PRIMA.getTela());
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    
+     @Override
+    public void listar(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            MateriaPrima obj = montarObjeto(request, response);
+            bo.listar(obj);
+            response.sendRedirect(request.getContextPath() + TelasConsulta.MATERIA_PRIMA.getTela());
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

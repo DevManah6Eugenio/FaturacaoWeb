@@ -6,10 +6,10 @@ package br.com.faturacao.controlador;
  */
 public enum TelasConsulta {
 
-    PRODUTO("/consulta_produto.jsp"),
-    MATERIA_PRIMA("/consulta_materiaprima.jsp"),
-    FORNECEDOR("/consulta_fornecedor.jsp"),
-    FORMULACAO("/consulta_formulacao.jsp");
+    PRODUTO("/consulta/consulta_produto.jsp"),
+    MATERIA_PRIMA("/consulta/consulta_materiaprima.jsp"),
+    FORNECEDOR("/consulta/consulta_fornecedor.jsp"),
+    FORMULACAO("/consulta/consulta_formulacao.jsp");
     
     private final String url;
     

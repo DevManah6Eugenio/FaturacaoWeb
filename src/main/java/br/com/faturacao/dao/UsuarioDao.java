@@ -40,7 +40,7 @@ public class UsuarioDao implements Dao<Usuario> {
     }
 
     @Override
-    public List<Usuario> listar(int primeiroResutlado, int ultimoResultado, Usuario filtro) {
+    public List<Usuario> listar(Usuario filtro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
