@@ -47,15 +47,4 @@ public class MateriaPrimaControlador extends Controlador<MateriaPrima> {
             Logger.getLogger(ControladorImpl.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
-    
-     @Override
-    public void listar(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            MateriaPrima obj = montarObjeto(request, response);
-            bo.listar(obj);
-            response.sendRedirect(request.getContextPath() + TelasConsulta.MATERIA_PRIMA.getTela());
-        } catch (Exception ex) {
-            Logger.getLogger(ControladorImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }

@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
 /**
  *
@@ -50,7 +52,11 @@ public abstract class ControladorImpl<T> extends HttpServlet implements Controla
     public void listar(HttpServletRequest request, HttpServletResponse response) {
         try {
             T obj = montarObjeto(request, response);
-            bo.listar(obj);
+            XStream xstream = new XStream(new JettisonMappedXmlDriver());
+//            xstream.alias("tz", String.class);
+            String json = xstream.toXML(bo.listar(obj));
+            response.getWriter().append(json);
+            response.getWriter().close();
         } catch (Exception ex) {
             Logger.getLogger(ControladorImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

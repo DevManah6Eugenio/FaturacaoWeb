@@ -21,8 +21,6 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
         try {
             acao = request.getParameter("acao");
             System.out.println("acao: "+ acao);
-            System.out.println("acao: "+ acao);
-            System.out.println("acao: "+ acao);
             
             if (acao.equalsIgnoreCase(AcaoControlador.CADASTRAR.getAcao())) {
                 this.cadastrar(request, response);
@@ -49,8 +47,13 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
     }
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+    
+    @Override
     public String getServletInfo() {
         return "Short description";
     }
-
 }

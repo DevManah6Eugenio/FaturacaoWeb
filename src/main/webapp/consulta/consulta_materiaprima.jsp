@@ -8,8 +8,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <script type="text/javascript" src="../js/jquery-3.3.0.min.js"/>
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+        <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"/>
         <title>Consulta Materia Prima</title>
     </head>
     <body>
