@@ -24,8 +24,6 @@
             <label>Senha</label>
             <input type="password" name="password">
             <button>Login</button>
-            
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
         </form>
     </body>
 </html>
