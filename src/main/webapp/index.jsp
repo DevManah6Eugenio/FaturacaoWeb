@@ -9,21 +9,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-        <script type="text/javascript" src="js/jquery-3.3.0.min.js"/>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-        <script type="text/javascript" src="js/bootstrap.min.js"/>
-
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script type="text/javascript" src="js/jquery-3.3.0.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="scripts/materialize/css/materialize.css" media="screen,projection"/>
+        <link href="css/login.css" rel="stylesheet">
         <title>Login</title>
     </head>
     <body class="text-center">
-                <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-        <form action="./menu.jsp" method="post">
+    <center>
+        <div class='header-box'>
+            <h1>Faturação</h1>
+        </div>
+        <form action="./menu.jsp" method="post" class="form-login">
             <label>Usuario</label>
-            <input type="text" name="login">
+            <input type="text" name="login" class="form-control">
             <label>Senha</label>
-            <input type="password" name="password">
-            <button>Login</button>
+            <input type="password" name="password" class="form-control">
+            <button class="btn btn-primary btn-block">Login</button>
         </form>
-    </body>
+    </center>
+    <script type="text/javascript" src="scripts/materialize/js/materialize.js"/>
+</body>
 </html>

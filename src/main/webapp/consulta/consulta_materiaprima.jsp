@@ -10,8 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <script type="text/javascript" src="../js/jquery-3.3.0.min.js"/>
-        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
-        <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"/>
+        <link type="text/css" rel="stylesheet" href="../scripts/materialize/css/materialize.css"  media="screen,projection"/>
         <title>Consulta Materia Prima</title>
     </head>
     <body>
@@ -52,6 +51,7 @@
                 </tr>
             </tbody>
         </table>
+        <script type="text/javascript" src="../scripts/materialize/js/materialize.js"/>
         <script src="../js/materia_prima.js" type="text/javascript"></script>
     </body>
 </html>
