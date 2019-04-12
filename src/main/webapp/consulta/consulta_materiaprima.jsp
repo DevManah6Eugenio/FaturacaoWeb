@@ -12,6 +12,7 @@
         <script type="text/javascript" src="../js/jquery-3.3.0.min.js"></script>
         <link type="text/css" rel="stylesheet" href="../scripts/materialize/css/materialize.css" media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="../css/materia_prima.css" media="screen,projection"/>
+        <script type="text/javascript" src="../js/consulta.js"></script>
         <title>Consulta Materia Prima</title>
     </head>
     <body>
@@ -66,6 +67,5 @@
         </table>
         <script type="text/javascript" src="../js/materia_prima.js"></script>
         <script type="text/javascript" src="../scripts/materialize/js/materialize.min.js"/>
-        
     </body>
 </html>

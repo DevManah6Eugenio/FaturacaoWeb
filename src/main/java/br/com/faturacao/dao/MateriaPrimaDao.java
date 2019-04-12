@@ -47,7 +47,7 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
         EntityManager em = JPAUtil.getEntityManager();
 
         try {
-            Query query = em.createQuery("select m from MateriaPrima m ");
+            Query query = em.createQuery("select m from MateriaPrima m " + montarWere(filtro));
             listMateriPrima = (List<MateriaPrima>) query.getResultList();
         } finally {
             em.close();
@@ -55,5 +55,14 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
 
         return listMateriPrima;
     }
-
+    
+    private String montarWere(MateriaPrima filtro) { 
+        String where = "";
+        
+        if ("".equals(filtro.getCodigo())) {
+            where = "m.codigo like % " + filtro.getCodigo() + "% ";
+        }
+        
+        return where;
+    }
 }
