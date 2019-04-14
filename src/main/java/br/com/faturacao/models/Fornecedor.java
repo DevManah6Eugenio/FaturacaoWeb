@@ -9,14 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Fornecedor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull
+    @Column(name = "cnpj", nullable = false)
     private String cpf;
     @Column(name = "empresa", nullable = false)
     private String empresa;

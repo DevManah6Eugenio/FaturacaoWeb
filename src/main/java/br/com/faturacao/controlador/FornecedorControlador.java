@@ -5,7 +5,6 @@ import br.com.faturacao.bo.FornecedorBO;
 import br.com.faturacao.models.Fornecedor;
 import br.com.faturacao.models.MateriaPrima;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -55,7 +54,8 @@ public class FornecedorControlador extends Controlador<Fornecedor> {
             }
             return lista;
         } finally {
-            
+            idsMateriaPrima = null;
+            lista = null;
         }
     }
 }

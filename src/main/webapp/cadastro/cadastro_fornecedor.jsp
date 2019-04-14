@@ -65,7 +65,7 @@
                             <i class="material-icons">add</i>
                         </a>
                     </div>
-                    <input type="hidden" name="ids_materia_prima" id="ids_materia_prima" value="afdsf">
+                    <input type="hidden" name="ids_materia_prima" id="ids_materia_prima" >
                     <div class="modal" id="modal-materia-prima">
                         <div class="modal-content">
                             <h4>Materia Prima</h4>

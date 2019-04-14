@@ -13,7 +13,6 @@ public class ProdutoDao implements Dao<Produto> {
 
     @Override
     public void salvar(Produto objeto) {
-
         em = JPAUtil.getEntityManager();
 
         try {

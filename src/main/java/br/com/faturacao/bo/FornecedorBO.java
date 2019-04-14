@@ -35,8 +35,7 @@ public class FornecedorBO implements BoInterface<Fornecedor> {
 
     @Override
     public List<Fornecedor> listar(Fornecedor obj) {
-        System.out.println("listar");
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.listar(obj);
     }
 
     @Override

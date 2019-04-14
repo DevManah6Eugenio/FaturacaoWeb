@@ -24,6 +24,45 @@
                 </div>
             </nav>
         </header>
-        <script type="text/javascript" src="../scripts/materialize/js/materialize.js"/>
+        <div class="row">
+            <main class="col s12">
+                <div class="col s7">
+                    <label>CPF/CNPJ:</label>
+                    <input type="text" name="cnpj">
+                </div>
+                <div class="col s12">
+                    <label>Empresa:</label>
+                    <input type="text" name="empresa">
+                </div>
+                <div class="col s12">
+                    <label>Representante:</label>
+                    <input type="text" name="representante">
+                </div>
+                <div class="col s6">
+                    <label>Materia Prima:</label>
+                    <select name="materia_prima_select" class="browser-default">
+                        <option value="" disabled selected>Selecione</option>
+                    </select>
+                </div>
+                <div class="col s12 center-align">
+                    <button class="btn" onclick="carregarListFornecedor()">Pesquisar</button>
+                </div>
+            </main>
+        </div>
+        <div class="divider"></div>
+        <table id="fornecedor" class="striped">
+            <thead>
+                <tr>
+                    <th>CPF/CNPJ</th>
+                    <th>Empresa</th>
+                    <th>Representante</th>
+                    <th>Fone</th>
+                </tr>
+            </thead>
+            <tbody id="tabela_fornecedor">
+            </tbody>
+        </table>
+        <script type="text/javascript" src="../scripts/materialize/js/materialize.js"></script>
+        <script type="text/javascript" src="../js/fornecedor.js"></script>
     </body>
 </html>

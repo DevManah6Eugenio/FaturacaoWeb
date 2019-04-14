@@ -10,10 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class MateriaPrima implements Serializable  {
+public class MateriaPrima implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
     @Column(name = "codigo", nullable = false)
     private String codigo;
