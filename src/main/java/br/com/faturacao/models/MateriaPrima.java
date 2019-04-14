@@ -83,4 +83,9 @@ public class MateriaPrima implements Serializable  {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
+    @Override
+    public String toString() {
+        return "MateriaPrima{" + "id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", unidadeCompra=" + unidadeCompra + ", valor=" + valor + ", fornecedores=" + fornecedores + '}';
+    }
 }

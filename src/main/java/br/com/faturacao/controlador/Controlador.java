@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 public abstract class Controlador <T> extends ControladorImpl <T>  {
     
     private String acao;
+
+    public Controlador(Class<T> type) {
+        super(type);
+    }
     
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

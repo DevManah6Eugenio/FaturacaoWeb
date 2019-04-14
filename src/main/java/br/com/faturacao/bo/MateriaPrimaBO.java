@@ -32,11 +32,8 @@ public class MateriaPrimaBO implements BoInterface<MateriaPrima> {
     }
 
     @Override
-    public List<MateriaPrima> listar(MateriaPrima obj) {
-        
+    public List<MateriaPrima> listar(MateriaPrima obj) {        
         List<MateriaPrima> lista = dao.listar(obj);
-        
-        lista.forEach(System.out::println);
         return lista;
     }
 

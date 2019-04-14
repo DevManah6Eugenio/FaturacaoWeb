@@ -7853,6 +7853,15 @@ $jscomp.polyfill = function (e, r, p, m) {
           img.setAttribute('src', chip.image);
           renderedChip.insertBefore(img, renderedChip.firstChild);
         }
+        
+        // adicionar o valor do elemento no dom
+        // criação de Manasses
+        if (chip.value) {
+          var value = document.createElement('input');
+          value.setAttribute('type', 'hidden');
+          value.setAttribute('value', chip.value)
+          renderedChip.insertBefore(value, renderedChip.firstChild);
+        }
 
         renderedChip.appendChild(closeIcon);
         return renderedChip;

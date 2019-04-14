@@ -2,7 +2,6 @@ package br.com.faturacao.dao;
 
 import br.com.faturacao.apoio.JPAUtil;
 import br.com.faturacao.models.Fornecedor;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -13,7 +12,6 @@ public class FornecedorDao implements Dao<Fornecedor> {
 
     @Override
     public void salvar(Fornecedor objeto) {
-
         em = JPAUtil.getEntityManager();
 
         try {

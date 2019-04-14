@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ProdutoControlador extends Controlador<Produto> {
 
-    {
+    public ProdutoControlador() {
+        super(Produto.class);
         this.bo = new ProdutoBO();
     }
     

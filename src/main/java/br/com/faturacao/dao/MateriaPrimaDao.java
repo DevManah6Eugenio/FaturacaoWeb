@@ -42,12 +42,26 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
 
     @Override
     public List<MateriaPrima> listar(MateriaPrima filtro) {
-       
+
         List<MateriaPrima> listMateriPrima;
         EntityManager em = JPAUtil.getEntityManager();
+        String sql;
 
         try {
             Query query = em.createQuery("select m from MateriaPrima m " + montarWere(filtro));
+
+            if (!"".equals(filtro.getNome().trim())) {
+                query.setParameter("nome", "%" + filtro.getNome() + "%");
+            }
+
+            if (!"".equals(filtro.getCodigo().trim())) {
+                query.setParameter("codigo", "%" + filtro.getCodigo() + "%");
+            }
+            
+            if (!"".equals(filtro.getUnidadeCompra().trim())) {
+                query.setParameter("unidade_compra", "%"+filtro.getUnidadeCompra()+"%");
+            }
+
             listMateriPrima = (List<MateriaPrima>) query.getResultList();
         } finally {
             em.close();
@@ -55,12 +69,21 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
 
         return listMateriPrima;
     }
-    
-    private String montarWere(MateriaPrima filtro) { 
-        String where = "";
-        
-        if ("".equals(filtro.getCodigo())) {
-            where = "m.codigo like % " + filtro.getCodigo() + "% ";
+
+    private String montarWere(MateriaPrima filtro) {
+
+        String where = " where 1 = 1 ";
+
+        if (!"".equals(filtro.getNome().trim())) {
+            where += " and m.nome like :nome ";
+        }
+
+        if (!"".equals(filtro.getCodigo().trim())) {
+            where += " and m.codigo like :codigo ";
+        }
+
+        if (!"".equals(filtro.getUnidadeCompra().trim())) {
+            where += " and m.unidadeCompra like :unidade_compra ";
         }
         
         return where;

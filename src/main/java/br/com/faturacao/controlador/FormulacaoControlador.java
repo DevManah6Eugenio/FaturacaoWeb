@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class FormulacaoControlador extends Controlador<Formulacao> {
 
-    {
+    public FormulacaoControlador() {
+        super(Formulacao.class);
         this.bo = new FormulacaoBO();
     }
     
