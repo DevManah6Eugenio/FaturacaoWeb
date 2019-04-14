@@ -4,6 +4,7 @@ import br.com.faturacao.apoio.JPAUtil;
 import br.com.faturacao.models.Formulacao;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 public class FormulacaoDao implements Dao<Formulacao>{
     
@@ -11,7 +12,6 @@ public class FormulacaoDao implements Dao<Formulacao>{
 
     @Override
     public void salvar(Formulacao objeto) {
-        if (objIsValido(objeto)) {
 
             em = JPAUtil.getEntityManager();
 
@@ -24,10 +24,7 @@ public class FormulacaoDao implements Dao<Formulacao>{
             } finally {
                 em.close();
             }
-        } else {
-            new Exception();
         }
-    }
 
     @Override
     public void editar(Formulacao objeto) {
@@ -40,18 +37,22 @@ public class FormulacaoDao implements Dao<Formulacao>{
     }
 
     @Override
-    public Formulacao carregar(Formulacao obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Formulacao> listar(Formulacao filtro) {
+            List<Formulacao> listFormulacao;
+        EntityManager em = JPAUtil.getEntityManager();
+
+        try {
+            Query query = em.createQuery("select f from Formulacao f ");
+            listFormulacao = (List<Formulacao>) query.getResultList();
+        } finally {
+            em.close();
+        }
+
+        return listFormulacao;
     }
 
     @Override
-    public List<Formulacao> listar(int primeiroResutlado, int ultimoResultado, Formulacao filtro) {
+    public Formulacao carregar(Formulacao objeto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public boolean objIsValido(Formulacao objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 public abstract class Controlador <T> extends ControladorImpl <T>  {
     
     private String acao;
+
+    public Controlador(Class<T> type) {
+        super(type);
+    }
     
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,6 +36,7 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
             } else if (acao.equals(AcaoControlador.LISTAR.getAcao())) {
                 this.listar(request, response);
             }
+            
         } catch (Exception e) {
 //            
         }
@@ -44,8 +49,13 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
     }
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+    
+    @Override
     public String getServletInfo() {
         return "Short description";
     }
-
 }

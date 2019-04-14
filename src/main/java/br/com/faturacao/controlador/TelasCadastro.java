@@ -6,10 +6,10 @@ package br.com.faturacao.controlador;
  */
 public enum TelasCadastro {
     
-    PRODUTO("/cadastro_produto.jsp"),
-    MATERIA_PRIMA("/cadastro_materiaprima.jsp"),
-    FORNECEDOR("/cadastro_fornecedor.jsp"),
-    FORMULACAO("/cadastro_formulacao.jsp");
+    PRODUTO("/cadastro/cadastro_produto.jsp"),
+    MATERIA_PRIMA("/cadastro/cadastro_materiaprima.jsp"),
+    FORNECEDOR("/cadastro/cadastro_fornecedor.jsp"),
+    FORMULACAO("/cadastro/cadastro_formulacao.jsp");
     
     private final String url;
     

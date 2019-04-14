@@ -1,5 +1,6 @@
 package br.com.faturacao.bo;
 
+import br.com.faturacao.dao.FornecedorDao;
 import br.com.faturacao.models.Fornecedor;
 import java.util.List;
 
@@ -8,10 +9,16 @@ import java.util.List;
  * @author manasses
  */
 public class FornecedorBO implements BoInterface<Fornecedor> {
+    
+    private final FornecedorDao dao;
 
+    public FornecedorBO() {
+        dao = new FornecedorDao();
+    }
+    
     @Override
     public void cadastrar(Fornecedor obj) {
-        System.out.println("cadastrar");
+        dao.salvar(obj);
     }
 
     @Override

@@ -1,18 +1,23 @@
 package br.com.faturacao.models;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Usuario implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
+    @NotNull
     private String cpf;
+    @Column(name = "nome", nullable = false)
     private String nome;
+    @Column(name = "senha", nullable = false)
     private String senha;
 
     public String getCpf() {

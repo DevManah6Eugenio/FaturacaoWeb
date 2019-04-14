@@ -49,7 +49,7 @@ public class FormulacaoBO implements BoInterface<Formulacao> {
         try {
             System.out.println("listar");
             dao = new FormulacaoDao();
-            return dao.listar(0,0,obj);
+            return dao.listar(obj);
         } finally {
             dao = null;
         }

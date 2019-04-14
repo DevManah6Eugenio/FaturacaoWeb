@@ -2,24 +2,30 @@ package br.com.faturacao.models;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Produto implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "codigo")
     private String codigo;
 
+    @ManyToMany
     List<MateriaPrima> materiasPrima;
-    
+
+    @ManyToMany
     List<Formulacao> formulacoes;
-    
+
     public int getId() {
         return id;
     }
@@ -64,5 +70,5 @@ public class Produto implements Serializable {
     public String toString() {
         return "Produto{" + "id=" + id + ", nome=" + nome + ", materiasPrima=" + materiasPrima + ", formulacoes=" + formulacoes + '}';
     }
-    
+
 }

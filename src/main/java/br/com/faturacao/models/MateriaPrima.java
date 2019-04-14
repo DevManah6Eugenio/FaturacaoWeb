@@ -15,15 +15,16 @@ public class MateriaPrima implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "codigo")
+    @Column(name = "codigo", nullable = false)
     private String codigo;
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
     @Column(name = "unidade_compra")
     private String unidadeCompra;
-    @Column(name = "valor")
+    @Column(name = "valor", nullable = false)
     private Double valor;
 
+    @ManyToMany
     private List<Fornecedor> fornecedores;
 
     public int getId() {
@@ -81,5 +82,10 @@ public class MateriaPrima implements Serializable  {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    @Override
+    public String toString() {
+        return "MateriaPrima{" + "id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", unidadeCompra=" + unidadeCompra + ", valor=" + valor + ", fornecedores=" + fornecedores + '}';
     }
 }

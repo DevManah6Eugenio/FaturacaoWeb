@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MateriaPrimaControlador extends Controlador<MateriaPrima> {
 
     public MateriaPrimaControlador() {
+        super(MateriaPrima.class);
         this.bo = new MateriaPrimaBO();
     }
 

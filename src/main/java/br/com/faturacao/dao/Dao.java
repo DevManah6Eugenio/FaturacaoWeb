@@ -16,9 +16,7 @@ public interface Dao <T> {
     
     public void excluir(T objeto);
     
-    public List<T> listar(int primeiroResutlado, int ultimoResultado, T filtro);
+    public List<T> listar(T filtro);
      
     public T carregar(T objeto);
-    
-    public boolean objIsValido(T objeto);
 }
