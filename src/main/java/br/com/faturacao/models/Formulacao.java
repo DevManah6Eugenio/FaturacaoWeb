@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Formulacao implements Serializable {
@@ -38,8 +38,8 @@ public class Formulacao implements Serializable {
     @Column(name = "valor_venda")
     private Double valorVenda;
 
-    @ManyToMany
-    List<Produto> produtos;
+    @ManyToOne
+    List<ProdutoFormulacao> produtos;
 
     public Formulacao() {
     }
@@ -144,11 +144,11 @@ public class Formulacao implements Serializable {
         this.valorVenda = valorVenda;
     }
 
-    public List<Produto> getProdutos() {
+    public List<ProdutoFormulacao> getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(List<Produto> produtos) {
+    public void setProdutos(List<ProdutoFormulacao> produtos) {
         this.produtos = produtos;
     }
 
@@ -156,5 +156,4 @@ public class Formulacao implements Serializable {
     public String toString() {
         return "Formulacao{" + "id=" + id + ", quantidadeEstimadaProduzida=" + quantidadeEstimadaProduzida + ", icm=" + icm + ", pis=" + pis + ", confis=" + confis + ", comissao=" + comissao + ", margemLucro=" + margemLucro + ", despesaFixa=" + despesaFixa + ", outrosDescontos=" + outrosDescontos + ", custoEstimado=" + custoEstimado + ", obs=" + obs + ", valorVenda=" + valorVenda + ", produtos=" + produtos + '}';
     }
-
 }

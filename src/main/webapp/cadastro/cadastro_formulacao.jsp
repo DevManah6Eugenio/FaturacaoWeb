@@ -29,38 +29,6 @@
                 <input type="hidden" name="acao" value="cadastrar">
                 <input type="hidden" name="id">
                 <div class="col s12">
-                    <label>Qtd. Estimada Produzida:</label>
-                    <input type="text" name="qtd_estimada_produzida">
-                </div>
-                <div class="col s12">
-                    <label>ICMS:</label>
-                    <input type="text" name="icm">
-                </div>
-                <div class="col s12">
-                    <label>PIS:</label>
-                    <input type="text" name="pis">
-                </div>
-                <div class="col s12">
-                    <label>CONFIS:</label>
-                    <input type="text" name="confis">
-                </div>
-                <div class="col s12">
-                    <label>Comissão:</label>
-                    <input type="text" name="comissao">
-                </div> 
-                <div class="col s12">
-                    <label>Margem de Lucro:</label>
-                    <input type="text" name="margem_lucro">
-                </div> 
-                <div class="col s12">
-                    <label>Despesa Fixa:</label>
-                    <input type="text" name="despesa_fixa">
-                </div>                 
-                <div class="col s12">
-                    <label>Outros Descontos:</label>
-                    <input type="text" name="outros_descontos">
-                </div>                
-                <div class="col s12">
                     <label>Custo Estimado:</label>
                     <input type="text" name="custo_estimado">
                 </div> 
@@ -71,12 +39,64 @@
                 <div class="col s12">
                     <label>Valor Venda:</label>
                     <input type="text" name="valor_venda">
-                </div> 
+                </div>
+                <div class="col s12">
+                    <label>Qtd. Estimada Produzida:</label>
+                    <input type="text" name="qtd_estimada_produzida">
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s6">
+                                <a href="#impostos">Impostos</a>
+                            </li>
+                            <li class="tab col s6">
+                                <a href="#produtos">Produtos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="impostos">
+                    <div class="col s6">
+                        <label>ICMS:</label>
+                        <input type="text" name="icm">
+                    </div>
+                    <div class="col s6">
+                        <label>PIS:</label>
+                        <input type="text" name="pis">
+                    </div>
+                    <div class="col s6">
+                        <label>CONFIS:</label>
+                        <input type="text" name="confis">
+                    </div>
+                    <div class="col s6">
+                        <label>Comissão:</label>
+                        <input type="text" name="comissao">
+                    </div> 
+                    <div class="col s6">
+                        <label>Margem de Lucro:</label>
+                        <input type="text" name="margem_lucro">
+                    </div> 
+                    <div class="col s6">
+                        <label>Despesa Fixa:</label>
+                        <input type="text" name="despesa_fixa">
+                    </div>                 
+                    <div class="col s6">
+                        <label>Outros Descontos:</label>
+                        <input type="text" name="outros_descontos">
+                    </div>                
+                </div>
+                <div id="produtos">
+                    <table>
+
+                    </table>
+                </div>
                 <div class="col s12 center-align">
                     <button class="btn" onclick="salvar();">Salvar</button>
                 </div>
             </form>
         </div>
-        <script type="text/javascript" src="../scripts/materialize/js/materialize.js"/>
+        <script type="text/javascript" src="../scripts/materialize/js/materialize.js"></script>
+        <script type="text/javascript" src="../js/formulacao.js"></script>
     </body>
 </html>
