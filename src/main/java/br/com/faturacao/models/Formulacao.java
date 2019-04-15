@@ -14,6 +14,7 @@ public class Formulacao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Integer id;
     @Column(name = "qtd_estimada_produzida", nullable = false)
     private Double quantidadeEstimadaProduzida;

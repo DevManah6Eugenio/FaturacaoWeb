@@ -13,7 +13,7 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    @NotNull
+    @Column(name = "cpf", nullable = false)
     private String cpf;
     @Column(name = "nome", nullable = false)
     private String nome;

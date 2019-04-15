@@ -27,34 +27,16 @@ public class ProdutoControlador extends Controlador<Produto> {
             produto.setCodigo(request.getParameter("codigo"));
             produto.setNome(request.getParameter("descricao"));
 
-            produto.setMateriasPrima(doMateriaPrima(request, response));
+            String idsMateriaPrima = request.getParameter("ids_materia_prima");
+            for (String id : idsMateriaPrima.split(",")) {
+                MateriaPrima m = new MateriaPrima();
+                m.setId(Converter.toInt(id));
+                produto.getMateriasPrima().add(m);
+            }
 
             return produto;
         } catch (Exception e) {
             throw new Exception();
-        }
-    }
-
-    private ArrayList<MateriaPrima> doMateriaPrima(HttpServletRequest request, HttpServletResponse response) {
-        String idsMateriaPrima;
-        ArrayList<MateriaPrima> lista;
-        try {
-            lista = new ArrayList<>();
-            idsMateriaPrima = request.getParameter("ids_materia_prima");
-            System.out.println("ids" + idsMateriaPrima);
-            for (String id : idsMateriaPrima.split(",")) {
-                int idMateria = Converter.toInt(id);
-                if (idMateria != 0) {
-                    MateriaPrima m = new MateriaPrima();
-                    m.setId(Converter.toInt(id));
-                    lista.add(m);
-                }
-                System.out.println("id: " + id);
-            }
-            return lista;
-        } finally {
-            idsMateriaPrima = null;
-            lista = null;
         }
     }
 }
