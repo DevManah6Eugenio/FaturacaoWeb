@@ -13,7 +13,6 @@
         <link type="text/css" rel="stylesheet" href="../scripts/materialize/css/materialize.css" media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="../css/materia_prima.css" media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="../css/estilo.css" media="screen,projection"/>
-         <link type="text/css" rel="stylesheet" href="../css/estilo.css" media="screen,projection"/>
         <script type="text/javascript" src="../js/consulta.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Consulta Materia Prima</title>

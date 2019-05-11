@@ -1,5 +1,6 @@
 package br.com.faturacao.bo;
 
+import br.com.faturacao.dao.ProdutoDao;
 import br.com.faturacao.models.Produto;
 import java.util.List;
 
@@ -9,13 +10,15 @@ import java.util.List;
  */
 public class ProdutoBO implements BoInterface<Produto> {
     
+     private final ProdutoDao dao;
+    
     public ProdutoBO() {
-        
+        dao = new ProdutoDao();
     }
 
     @Override
     public void cadastrar(Produto obj) {
-        System.out.println("cadastrar");
+        dao.salvar(obj);
     }
 
     @Override

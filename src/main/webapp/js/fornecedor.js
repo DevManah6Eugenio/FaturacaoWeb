@@ -1,4 +1,5 @@
 var qtdDomMateriPrima = 1;
+var qtdDom = 1;
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.modal');
@@ -107,37 +108,87 @@ function salvar() {
         } else {
             idsMateriaPrima += "," + inputs[i].value;
         }
-    };
+    }
 
     $('#ids_materia_prima')[0].value = idsMateriaPrima;
 }
 
+function adicionarNaTabela(fornecedor){
+    console.log(fornecedor);
+    var tabela = document.querySelector("#tabela_fornecedor");
+    var fornecedorTr = document.createElement("tr");
+    
+    var _input_id = document.createElement("input");
+    _input_id.setAttribute("type", "hidden");
+    _input_id.setAttribute("id", "id_fornecedor_" + qtdDom);
+    _input_id.setAttribute("value", fornecedor.cpf);
 
-//
-//var botaoAdicionar = document.querySelector("#pesquisar");
-//
-//botaoAdicionar.addEventListener("click", function () {
-//    var xhr = new XMLHttpRequest();
-//
-//    xhr.open("POST", "../FornecedorControlador?acao=listar");
-//
-//    xhr.addEventListener("load", function () {
-//
-//        if (xhr.status === 200) {
-//            var resposta = xhr.responseText;
-//
-//            var fornecedor = JSON.parse(resposta);
-//
-//            fornecedor.forEach(function (fornecedor) {
-//                adicionarNaTabela(fornecedor);
-//            });
-//        } else {
-//            alert("erro");
-//        }
-//    });
-//    xhr.send();
-//});
-//
-//function adicionarNaTabela(fornecedor) {
-//    console.log(fornecedor);
-//}
+    var _td_cnpj = document.createElement("td");
+    _td_cnpj.setAttribute("id", "cnpj_" + qtdDom);
+    var _td_empresa = document.createElement("td");
+    _td_empresa.setAttribute("id", "empresa_" + qtdDom);    
+    var _td_representante = document.createElement("td");
+    _td_representante.setAttribute("id", "representante_" + qtdDom);
+    var _td_fone = document.createElement("td");
+    _td_fone.setAttribute("id", "fone_" + qtdDom);
+    
+    var _td_edit = document.createElement("td");
+    _td_edit.setAttribute("id", "edit_" + qtdDom);
+    _td_edit.setAttribute("class", "col s1");
+
+    _td_cnpj.textContent = fornecedor.cpf;
+    _td_empresa.textContent = fornecedor.empresa;
+    _td_representante.textContent = fornecedor.nomeRepresentante;
+    _td_fone.textContent = fornecedor.telefone1 + ' / ' + fornecedor.telefone2;
+
+    _iconEdit = document.createElement('i');
+    _iconEdit.setAttribute('class', 'small material-icons');
+    _iconEdit.textContent = 'edit';
+    _iconEdit.setAttribute("onclick", "carregarEditar(" + fornecedor.cpf + ")");
+
+    _td_edit.appendChild(_iconEdit);
+    _td_cnpj.appendChild(_input_id);
+    fornecedorTr.appendChild(_td_cnpj);
+    fornecedorTr.appendChild(_td_empresa);
+    fornecedorTr.appendChild(_td_representante);
+    fornecedorTr.appendChild(_td_fone);
+    fornecedorTr.appendChild(_td_edit);
+
+    tabela.appendChild(fornecedorTr);
+    qtdDom++;
+}
+
+function carregarListFornecedor() {
+    jQuery.ajax({
+        url: '../FornecedorControlador',
+        type: 'GET',
+        async: false,
+        data: {
+            'acao': 'listar',
+            'cnpj': '',
+            'email': '',
+            'empresa': '',
+            'representante': '',
+            'telefone01': '',
+            'telefone02': '',
+            'ids_materia_prima': ''
+        },
+        success: function (data, textStatus, jqXHR) {
+
+            if (data) {
+                data = JSON.parse(data);
+                if (data["vector"][0]["Fornecedor"][0]) {
+                    data["vector"][0]["Fornecedor"].forEach(function (fornecedor) {
+                        adicionarNaTabela(fornecedor);
+                    });
+                } else {
+                    adicionarNaTabela(data["vector"][0]["Fornecedor"]);
+                }
+            }
+        }
+    });
+}
+
+function carregarEditar(cnpj) {
+    alert(cnpj);
+}

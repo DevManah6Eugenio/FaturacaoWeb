@@ -1,6 +1,7 @@
 package br.com.faturacao.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ public class Produto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
     @Column(name = "nome")
     private String nome;
@@ -43,6 +45,9 @@ public class Produto implements Serializable {
     }
 
     public List<MateriaPrima> getMateriasPrima() {
+        if (this.materiasPrima == null) {
+            this.materiasPrima = new ArrayList<>();
+        }
         return materiasPrima;
     }
 
