@@ -1,7 +1,11 @@
 package br.com.faturacao.controlador;
 
 import br.com.faturacao.apoio.Converter;
+import br.com.faturacao.bo.MateriaPrimaBO;
+import br.com.faturacao.models.MateriaPrima;
+import com.thoughtworks.xstream.XStream;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,21 +23,23 @@ public class ConsultaControlador extends ControladorAbstract {
         response.setContentType("text/html;charset=UTF-8");
         codTela = Telas.getOpcao(Converter.toInt(request.getParameter("codTela")));
 
-        if (null != codTela) switch (codTela) {
-            case CONSULTA_FORMULACAO:
-                response.sendRedirect(request.getContextPath() + TelasConsulta.FORMULACAO.getTela());
-                break;
-            case CONSULTA_FORNECEDOR:
-                response.sendRedirect(request.getContextPath() + TelasConsulta.FORNECEDOR.getTela());
-                break;
-            case CONSULTA_MATERIA_PRIMA:
-                response.sendRedirect(request.getContextPath() + TelasConsulta.MATERIA_PRIMA.getTela());
-                break;
-            case CONSULTA_PRODUTO:
-                response.sendRedirect(request.getContextPath() + TelasConsulta.PRODUTO.getTela());
-                break;
-            default:
-                throw new IllegalArgumentException();
+        if (null != codTela) {
+            switch (codTela) {
+                case CONSULTA_FORMULACAO:
+                    response.sendRedirect(request.getContextPath() + TelasConsulta.FORMULACAO.getTela());
+                    break;
+                case CONSULTA_FORNECEDOR:
+                    response.sendRedirect(request.getContextPath() + TelasConsulta.FORNECEDOR.getTela());
+                    break;
+                case CONSULTA_MATERIA_PRIMA:
+                    response.sendRedirect(request.getContextPath() + TelasConsulta.MATERIA_PRIMA.getTela());
+                    break;
+                case CONSULTA_PRODUTO:
+                    response.sendRedirect(request.getContextPath() + TelasConsulta.PRODUTO.getTela());
+                    break;
+                default:
+                    throw new IllegalArgumentException();
+            }
         }
     }
 

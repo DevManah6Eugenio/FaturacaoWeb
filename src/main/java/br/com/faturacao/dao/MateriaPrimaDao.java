@@ -40,12 +40,25 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
         return null;
     }
 
+    public List<MateriaPrima> listarTodos() {
+        List<MateriaPrima> listMateriPrima = null;
+        EntityManager em = JPAUtil.getEntityManager();
+
+        try {
+            Query query = em.createQuery("select m from MateriaPrima m ");
+            listMateriPrima = (List<MateriaPrima>) query.getResultList();
+        } finally {
+            em.close();
+        }
+
+        return listMateriPrima;
+    }
+
     @Override
     public List<MateriaPrima> listar(MateriaPrima filtro) {
 
         List<MateriaPrima> listMateriPrima;
         EntityManager em = JPAUtil.getEntityManager();
-        String sql;
 
         try {
             Query query = em.createQuery("select m from MateriaPrima m " + montarWere(filtro));
@@ -57,9 +70,9 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
             if (!"".equals(filtro.getCodigo().trim())) {
                 query.setParameter("codigo", "%" + filtro.getCodigo() + "%");
             }
-            
+
             if (!"".equals(filtro.getUnidadeCompra().trim())) {
-                query.setParameter("unidade_compra", "%"+filtro.getUnidadeCompra()+"%");
+                query.setParameter("unidade_compra", "%" + filtro.getUnidadeCompra() + "%");
             }
 
             listMateriPrima = (List<MateriaPrima>) query.getResultList();
@@ -85,7 +98,7 @@ public class MateriaPrimaDao implements Dao<MateriaPrima> {
         if (!"".equals(filtro.getUnidadeCompra().trim())) {
             where += " and m.unidadeCompra like :unidade_compra ";
         }
-        
+
         return where;
     }
 }

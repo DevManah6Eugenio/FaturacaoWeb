@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="scripts/materialize/css/materialize.css">
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script type = "text/javascript" src = "jquery/jquery-3.3.0.min.js"></script>           
+        <script type = "text/javascript" src = "jquery/jquery.mask.min.js"></script>           
         <script src="scripts/materialize/js/materialize.js"></script>
           <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
       <link rel = "stylesheet"

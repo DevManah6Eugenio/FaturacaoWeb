@@ -14,9 +14,9 @@ import javax.persistence.ManyToMany;
 public class Fornecedor implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "cnpj", nullable = false)
-    private String cpf;
+    private String cnpj;
     @Column(name = "empresa", nullable = false)
     private String empresa;
     @Column(name = "telefone01")
@@ -31,12 +31,12 @@ public class Fornecedor implements Serializable {
     @ManyToMany
     private List<MateriaPrima> materiPrima;
 
-    public String getCpf() {
-        return cpf;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getNomeRepresentante() {
@@ -92,6 +92,6 @@ public class Fornecedor implements Serializable {
 
     @Override
     public String toString() {
-        return "Fornecedor{" + "cpf=" + cpf + ", empresa=" + empresa + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", nomeRepresentante=" + nomeRepresentante + ", email=" + email + ", materiPrima=" + materiPrima + '}';
+        return "Fornecedor{" + "cpf=" + cnpj + ", empresa=" + empresa + ", telefone1=" + telefone1 + ", telefone2=" + telefone2 + ", nomeRepresentante=" + nomeRepresentante + ", email=" + email + ", materiPrima=" + materiPrima + '}';
     }
 }

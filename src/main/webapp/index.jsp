@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-        <script type="text/javascript" src="js/jquery-3.3.0.min.js"></script>
+        <script type="text/javascript" src="jquery/jquery-3.3.0.min.js"></script>
         <link type="text/css" rel="stylesheet" href="scripts/materialize/css/materialize.css" media="screen,projection"/>
         <link href="css/login.css" rel="stylesheet">
         <title>Login</title>

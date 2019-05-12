@@ -38,7 +38,7 @@ public abstract class Controlador <T> extends ControladorImpl <T>  {
             }
             
         } catch (Exception e) {
-//            
+           response.sendRedirect(request.getContextPath() + "/erro.jsp"); 
         }
     }
 

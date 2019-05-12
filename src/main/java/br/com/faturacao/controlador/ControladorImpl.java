@@ -1,7 +1,6 @@
 package br.com.faturacao.controlador;
 
 import br.com.faturacao.bo.BoInterface;
-import br.com.faturacao.models.MateriaPrima;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;

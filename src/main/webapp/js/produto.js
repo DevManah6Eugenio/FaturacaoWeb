@@ -1,8 +1,9 @@
 var qtdDomMateriPrima = 1;
 
 document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems, options);
+    let elems = document.querySelectorAll('.modal');
+    var options;
+    let instances = M.Modal.init(elems, options);
 });
 
 $(document).ready(function () {
@@ -42,28 +43,28 @@ function carregarMateriaPrima() {
 
 function adicionarNaTabelaDomMateriaPrima(materiaPrima) {
 
-    var tabela = document.querySelector("#tabela_materia_prima");
-    var materiaTr = document.createElement("tr");
+    let tabela = document.querySelector("#tabela_materia_prima");
+    let materiaTr = document.createElement("tr");
 
-    var _input_id = document.createElement("input");
+    let _input_id = document.createElement("input");
     _input_id.setAttribute("type", "hidden");
     _input_id.setAttribute("id", "id_materia_prima_" + qtdDomMateriPrima);
 
-    var _checkboxDom = document.createElement("input");
+    let _checkboxDom = document.createElement("input");
     _checkboxDom.setAttribute("type", "checkbox");
     _checkboxDom.setAttribute("class", "filled-in");
     _checkboxDom.setAttribute("id", "checkboxDom_" + qtdDomMateriPrima);
 
-    var _td_nome = document.createElement("td");
+    let _td_nome = document.createElement("td");
     _td_nome.setAttribute("id", "nome_" + qtdDomMateriPrima);
 
-    var _td_checkboxDom = document.createElement("td");
+    let _td_checkboxDom = document.createElement("td");
     _td_checkboxDom.setAttribute("id", "td_checkboxDom" + qtdDomMateriPrima);
 
     _input_id.setAttribute("value", materiaPrima.id);
     _td_nome.textContent = materiaPrima.nome;
 
-    var _label = document.createElement("label");
+    let _label = document.createElement("label");
     _label.appendChild(_checkboxDom);
     _label.appendChild(document.createElement("span"));
 
@@ -78,9 +79,9 @@ function adicionarNaTabelaDomMateriaPrima(materiaPrima) {
 }
 
 function adicionarMateriaPrimaForm() {
-    var json = [];
+    let json = [];
 
-    for (var i = 1; i < qtdDomMateriPrima; i++) {
+    for (let i = 1; i < qtdDomMateriPrima; i++) {
         if (document.querySelector('#checkboxDom_' + i).checked) {
             json.push({
                 'tag': document.querySelector('#nome_' + i).innerText,
@@ -98,10 +99,10 @@ function adicionarMateriaPrimaForm() {
 }
 
 function salvar() {
-    var inputs = $('.chip input');
-    var idsMateriaPrima = "";
+    let inputs = $('.chip input');
+    let idsMateriaPrima = "";
 
-    for (var i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length; i++) {
         if (idsMateriaPrima === "") {
             idsMateriaPrima = inputs[i].value;
         } else {

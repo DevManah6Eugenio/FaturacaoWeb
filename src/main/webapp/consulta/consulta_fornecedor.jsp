@@ -5,11 +5,14 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id="bo" class="br.com.faturacao.bo.MateriaPrimaBO"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <script type="text/javascript" src="../js/jquery-3.3.0.min.js"></script>
+        <script type="text/javascript" src="../jquery/jquery-3.3.0.min.js"></script>
+        <script type="text/javascript" src="../jquery/jquery.mask.min.js"></script>
         <link type="text/css" rel="stylesheet" href="../scripts/materialize/css/materialize.css" media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="../css/estilo.css" media="screen,projection"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -26,23 +29,36 @@
         </header>
         <div class="row">
             <main class="col s12">
-                <div class="col s7">
-                    <label>CPF/CNPJ:</label>
-                    <input type="text" name="cnpj">
+                <div class="col s12">
+                    <div class="col s6">
+                        <label>CPF/CNPJ:</label>
+                        <input type="text" name="cnpj" id="cnpj" maxlength="40">
+                    </div>
                 </div>
                 <div class="col s12">
-                    <label>Empresa:</label>
-                    <input type="text" name="empresa">
+                    <div class="col s6">
+                        <label>Empresa:</label>
+                        <input type="text" name="empresa" id="empresa" maxlength="40">
+                    </div>
                 </div>
                 <div class="col s12">
-                    <label>Representante:</label>
-                    <input type="text" name="representante">
+                    <div class="col s6">
+                        <label>Representante:</label>
+                        <input type="text" name="representante" id="representante" maxlength="40">
+                    </div>
                 </div>
-                <div class="col s6">
-                    <label>Materia Prima:</label>
-                    <select name="materia_prima_select" class="browser-default">
-                        <option value="" disabled selected>Selecione</option>
-                    </select>
+                <div class="col s12">
+                    <div class="col s6">
+                        <label>Materia Prima:</label>
+                        <select name="ids_materia_prima" class="browser-default">
+                            <option value="" disabled selected>Selecione</option>
+                            <c:forEach var="materiaPrima" items="${bo.listarTodos()}">
+                                <option value="${materiaPrima.id}">
+                                    ${materiaPrima.nome}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </div>
                 </div>
                 <div class="col s12 center-align">
                     <button class="btn" onclick="carregarListFornecedor()">Pesquisar</button>

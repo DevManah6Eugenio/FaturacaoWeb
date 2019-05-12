@@ -4,7 +4,6 @@ import br.com.faturacao.apoio.Converter;
 import br.com.faturacao.bo.FornecedorBO;
 import br.com.faturacao.models.Fornecedor;
 import br.com.faturacao.models.MateriaPrima;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +23,7 @@ public class FornecedorControlador extends Controlador<Fornecedor> {
 
         try {
             Fornecedor fornecedor = new Fornecedor();
-            fornecedor.setCpf(request.getParameter("cnpj"));
+            fornecedor.setCnpj(request.getParameter("cnpj"));
             fornecedor.setEmail(request.getParameter("email"));
             fornecedor.setEmpresa(request.getParameter("empresa"));
             fornecedor.setNomeRepresentante(request.getParameter("representante"));
@@ -37,7 +36,7 @@ public class FornecedorControlador extends Controlador<Fornecedor> {
                 m.setId(Converter.toInt(id));
                 fornecedor.getMateriPrima().add(m);
             }
-
+            
             return fornecedor;
         } catch (Exception e) {
             throw new Exception();

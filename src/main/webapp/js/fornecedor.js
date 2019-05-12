@@ -3,37 +3,55 @@ var qtdDom = 1;
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.modal');
+    var options;
     var instances = M.Modal.init(elems, options);
 });
 
 $(document).ready(function () {
     $('.modal').modal();
+    $('#cnpj').mask("99.999.999/9999-99");
+    $('#fone1').mask("(99) 9999-9999Z", {
+        translation: {
+            'Z': {
+                pattern: /[0-9]/, optional: true
+            }
+        }
+    });
+    $('#fone2').mask("(99) 9999-9999Z", {
+        translation: {
+            'Z': {
+                pattern: /[0-9]/, optional: true
+            }
+        }
+    });
+
+//    $('input#cnpj').characterCounter();
 });
 
 function adicionarNaTabelaDomMateriaPrima(materiaPrima) {
 
-    var tabela = document.querySelector("#tabela_materia_prima");
-    var materiaTr = document.createElement("tr");
+    let tabela = document.querySelector("#tabela_materia_prima");
+    let materiaTr = document.createElement("tr");
 
-    var _input_id = document.createElement("input");
+    let _input_id = document.createElement("input");
     _input_id.setAttribute("type", "hidden");
     _input_id.setAttribute("id", "id_materia_prima_" + qtdDomMateriPrima);
 
-    var _checkboxDom = document.createElement("input");
+    let _checkboxDom = document.createElement("input");
     _checkboxDom.setAttribute("type", "checkbox");
     _checkboxDom.setAttribute("class", "filled-in");
     _checkboxDom.setAttribute("id", "checkboxDom_" + qtdDomMateriPrima);
 
-    var _td_nome = document.createElement("td");
+    let _td_nome = document.createElement("td");
     _td_nome.setAttribute("id", "nome_" + qtdDomMateriPrima);
 
-    var _td_checkboxDom = document.createElement("td");
+    let _td_checkboxDom = document.createElement("td");
     _td_checkboxDom.setAttribute("id", "td_checkboxDom" + qtdDomMateriPrima);
 
     _input_id.setAttribute("value", materiaPrima.id);
     _td_nome.textContent = materiaPrima.nome;
 
-    var _label = document.createElement("label");
+    let _label = document.createElement("label");
     _label.appendChild(_checkboxDom);
     _label.appendChild(document.createElement("span"));
 
@@ -79,9 +97,9 @@ function carregarMateriaPrima() {
 }
 
 function adicionarMateriaPrimaForm() {
-    var json = [];
+    let json = [];
 
-    for (var i = 1; i < qtdDomMateriPrima; i++) {
+    for (let i = 1; i < qtdDomMateriPrima; i++) {
         if (document.querySelector('#checkboxDom_' + i).checked) {
             json.push({
                 'tag': document.querySelector('#nome_' + i).innerText,
@@ -99,10 +117,10 @@ function adicionarMateriaPrimaForm() {
 }
 
 function salvar() {
-    var inputs = $('.chip input');
-    var idsMateriaPrima = "";
+    let inputs = $('.chip input');
+    let idsMateriaPrima = "";
 
-    for (var i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length; i++) {
         if (idsMateriaPrima === "") {
             idsMateriaPrima = inputs[i].value;
         } else {
@@ -113,30 +131,30 @@ function salvar() {
     $('#ids_materia_prima')[0].value = idsMateriaPrima;
 }
 
-function adicionarNaTabela(fornecedor){
+function adicionarNaTabela(fornecedor) {
     console.log(fornecedor);
-    var tabela = document.querySelector("#tabela_fornecedor");
-    var fornecedorTr = document.createElement("tr");
-    
-    var _input_id = document.createElement("input");
+    let tabela = document.querySelector("#tabela_fornecedor");
+    let fornecedorTr = document.createElement("tr");
+
+    let _input_id = document.createElement("input");
     _input_id.setAttribute("type", "hidden");
     _input_id.setAttribute("id", "id_fornecedor_" + qtdDom);
-    _input_id.setAttribute("value", fornecedor.cpf);
+    _input_id.setAttribute("value", fornecedor.cnpj);
 
-    var _td_cnpj = document.createElement("td");
+    let _td_cnpj = document.createElement("td");
     _td_cnpj.setAttribute("id", "cnpj_" + qtdDom);
-    var _td_empresa = document.createElement("td");
-    _td_empresa.setAttribute("id", "empresa_" + qtdDom);    
-    var _td_representante = document.createElement("td");
+    let _td_empresa = document.createElement("td");
+    _td_empresa.setAttribute("id", "empresa_" + qtdDom);
+    let _td_representante = document.createElement("td");
     _td_representante.setAttribute("id", "representante_" + qtdDom);
-    var _td_fone = document.createElement("td");
+    let _td_fone = document.createElement("td");
     _td_fone.setAttribute("id", "fone_" + qtdDom);
-    
-    var _td_edit = document.createElement("td");
+
+    let _td_edit = document.createElement("td");
     _td_edit.setAttribute("id", "edit_" + qtdDom);
     _td_edit.setAttribute("class", "col s1");
 
-    _td_cnpj.textContent = fornecedor.cpf;
+    _td_cnpj.textContent = fornecedor.cnpj;
     _td_empresa.textContent = fornecedor.empresa;
     _td_representante.textContent = fornecedor.nomeRepresentante;
     _td_fone.textContent = fornecedor.telefone1 + ' / ' + fornecedor.telefone2;
@@ -165,15 +183,17 @@ function carregarListFornecedor() {
         async: false,
         data: {
             'acao': 'listar',
-            'cnpj': '',
+            'cnpj': $("#cnpj")[0].value,
             'email': '',
-            'empresa': '',
-            'representante': '',
+            'empresa': $("#empresa")[0].value,
+            'representante': $("#representante")[0].value,
             'telefone01': '',
             'telefone02': '',
-            'ids_materia_prima': ''
+            'ids_materia_prima': $("#ids_materia_prima")[0].value
         },
         success: function (data, textStatus, jqXHR) {
+
+            $("#fornecedor tbody tr").remove(); 
 
             if (data) {
                 data = JSON.parse(data);

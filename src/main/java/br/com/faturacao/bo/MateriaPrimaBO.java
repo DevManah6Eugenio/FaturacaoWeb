@@ -11,11 +11,11 @@ import java.util.List;
 public class MateriaPrimaBO implements BoInterface<MateriaPrima> {
 
     private MateriaPrimaDao dao;
-    
-    public MateriaPrimaBO(){
+
+    public MateriaPrimaBO() {
         dao = new MateriaPrimaDao();
     }
-    
+
     @Override
     public void cadastrar(MateriaPrima obj) {
         dao.salvar(obj);
@@ -32,7 +32,7 @@ public class MateriaPrimaBO implements BoInterface<MateriaPrima> {
     }
 
     @Override
-    public List<MateriaPrima> listar(MateriaPrima obj) {        
+    public List<MateriaPrima> listar(MateriaPrima obj) {
         List<MateriaPrima> lista = dao.listar(obj);
         return lista;
     }
@@ -41,5 +41,8 @@ public class MateriaPrimaBO implements BoInterface<MateriaPrima> {
     public void deletar(MateriaPrima obj) {
         dao.excluir(obj);
     }
-    
+
+    public List<MateriaPrima> listarTodos() {
+        return dao.listarTodos();
+    }
 }

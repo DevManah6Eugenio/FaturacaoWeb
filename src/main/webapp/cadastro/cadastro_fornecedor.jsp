@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <script type="text/javascript" src="../js/jquery-3.3.0.min.js"></script>
+        <script type="text/javascript" src="../jquery/jquery-3.3.0.min.js"></script>
+        <script type="text/javascript" src="../jquery/jquery.mask.min.js"></script>
         <link type="text/css" rel="stylesheet" href="../scripts/materialize/css/materialize.css" media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="../css/estilo.css" media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="../css/fornecedor.css" media="screen,projection"/>
@@ -29,77 +30,89 @@
             <form action="../FornecedorControlador" method="post" class="col s12">
                 <input type="hidden" name="acao" value="cadastrar">
                 <input type="hidden" name="cod_tela_consulta" value="102">
-                <div class="col s7">
-                    <label>CPF/CNPJ:</label>
-                    <input type="text" name="cnpj">
+                <div class="col s12">
+                    <div class="col s3 input-field">
+                        <input type="text" name="cnpj" id="cnpj">
+                        <label for="cnpj">CPF/CNPJ:</label>
+                    </div>
                 </div>
                 <div class="col s12">
-                    <label>Empresa:</label>
-                    <input type="text" name="empresa">
+                    <div class="col s6 input-field">
+                        <input type="text" name="empresa" maxlength="40">
+                        <label>Empresa:</label>
+                    </div>
                 </div>
                 <div class="col s12">
-                    <label>Representante:</label>
-                    <input type="text" name="representante">
+                    <div class="col s6 input-field">
+                        <label>Representante:</label>
+                        <input type="text" name="representante" maxlength="40">
+                    </div>
                 </div>
-                <div class="col s7">
-                    <label>Tel.:</label>
-                    <input type="tel" name="telefone01">
+                <div class="col s12">
+                    <div class="col s2 input-field">
+                        <label>Tel.:</label>
+                        <input type="tel" name="telefone01" id="fone1">
+                    </div>
+                    <div class="col s2 input-field">
+                        <label>Tel.:</label>
+                        <input type="tel" name="telefone02" id="fone2">
+                    </div>
                 </div>
-                <div class="col s7">
-                    <label>Tel.:</label>
-                    <input type="tel" name="telefone02">
+                <div class="col s12">
+                    <div class="col s6 input-field">
+                        <label>Email:</label>
+                        <input type="email" name="email" maxlength="40">
+                    </div>
                 </div>
-                <div class="col s8">
-                    <label>Email:</label>
-                    <input type="email" name="email">
-                </div>
-                <div id="dom_materia_prima">
-                    <div class="col s11">
-                        <label>Materia Prima:</label>
-                        <div class="chips chips-initial">
+                <div class="col s12">
+                    <div id="dom_materia_prima">
+                        <div class="col s6">
+                            <label>Materia Prima:</label>
+                            <div class="chips chips-initial">
 
-                        </div>
-                    </div>
-                    <div class="col s1" id="btn-adicionar-materia-prima">
-                        <a href="#modal-materia-prima" class="btn-floating modal-trigger">
-                            <i class="material-icons">add</i>
-                        </a>
-                    </div>
-                    <input type="hidden" name="ids_materia_prima" id="ids_materia_prima" >
-                    <div class="modal" id="modal-materia-prima">
-                        <div class="modal-content">
-                            <h4>Materia Prima</h4>
-                            <div class="row">
-                                <div class="col s11">
-                                    <input type="text" class="materialize-textarea" id="pesquisar_materia_prima" placeholder="Descrição Materia Prima">
-                                </div>
-                                <div class="col s1">
-                                    <a href="#" class="prefix large  material-icons" onclick="carregarMateriaPrima();">search</a>
-                                </div>
-                                <div class="col s12">
-                                    <table id="materia_prima" class="responsive-table">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <label>
-                                                        <input type="checkbox" class="filled-in"/>
-                                                        <span></span>
-                                                    </label>
-                                                </th>
-                                                <th>
-                                                    Descrição
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tabela_materia_prima">
-                                        </tbody>
-                                    </table>
-                                </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <a class="btn modal-close">Sair</a>
-                            <a class="btn modal-close" onclick="adicionarMateriaPrimaForm();">Adicionar</a>
+                        <div class="col s1" id="btn-adicionar-materia-prima">
+                            <a href="#modal-materia-prima" class="btn-floating modal-trigger">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
+                        <input type="hidden" name="ids_materia_prima" id="ids_materia_prima" >
+                        <div class="modal" id="modal-materia-prima">
+                            <div class="modal-content">
+                                <h4>Materia Prima</h4>
+                                <div class="row">
+                                    <div class="col s11">
+                                        <input type="text" class="materialize-textarea" id="pesquisar_materia_prima" placeholder="Descrição Materia Prima">
+                                    </div>
+                                    <div class="col s1">
+                                        <a href="#" class="prefix large  material-icons" onclick="carregarMateriaPrima();">search</a>
+                                    </div>
+                                    <div class="col s12">
+                                        <table id="materia_prima" class="responsive-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <label>
+                                                            <input type="checkbox" class="filled-in"/>
+                                                            <span></span>
+                                                        </label>
+                                                    </th>
+                                                    <th>
+                                                        Descrição
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tabela_materia_prima">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn modal-close">Sair</a>
+                                <a class="btn modal-close" onclick="adicionarMateriaPrimaForm();">Adicionar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
