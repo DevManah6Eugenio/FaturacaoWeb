@@ -10,7 +10,7 @@ $(document).ready(function () {
     $('.modal').modal();
 });
 
-function carregarMateriaPrima() {
+function carregarProduto() {
     jQuery.ajax({
         url: '../MateriaPrimaControlador',
         type: 'GET',

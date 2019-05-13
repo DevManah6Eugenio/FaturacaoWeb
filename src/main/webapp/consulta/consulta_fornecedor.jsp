@@ -30,19 +30,19 @@
         <div class="row">
             <main class="col s12">
                 <div class="col s12">
-                    <div class="col s6">
+                    <div class="col s6 input-field">
                         <label>CPF/CNPJ:</label>
                         <input type="text" name="cnpj" id="cnpj" maxlength="40">
                     </div>
                 </div>
                 <div class="col s12">
-                    <div class="col s6">
+                    <div class="col s6 input-field">
                         <label>Empresa:</label>
                         <input type="text" name="empresa" id="empresa" maxlength="40">
                     </div>
                 </div>
                 <div class="col s12">
-                    <div class="col s6">
+                    <div class="col s6 input-field">
                         <label>Representante:</label>
                         <input type="text" name="representante" id="representante" maxlength="40">
                     </div>
@@ -50,7 +50,7 @@
                 <div class="col s12">
                     <div class="col s6">
                         <label>Materia Prima:</label>
-                        <select name="ids_materia_prima" class="browser-default">
+                        <select name="ids_materia_prima" class="browser-default" id="ids_materia_prima">
                             <option value="" disabled selected>Selecione</option>
                             <c:forEach var="materiaPrima" items="${bo.listarTodos()}">
                                 <option value="${materiaPrima.id}">

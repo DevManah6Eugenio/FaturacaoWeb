@@ -39,13 +39,13 @@
                 </div>
                 <div class="col s12">
                     <div class="col s6 input-field">
-                        <input type="text" name="descricao">
+                        <input type="text" name="descricao" maxlength="40">
                          <label for="descricao">Descrição:</label>
                     </div>
                 </div>
                 <div class="col s12">
                     <div class="col s6 input-field">
-                        <input type="number" name="valor" class="validate">
+                        <input type="number" name="valor" class="validate" max="9999">
                         <label for="valor">Valor:</label>
                     </div>
                 </div>

@@ -30,21 +30,27 @@
         <div class="row">
             <main class="col s12">
                 <div class="col s12">
-                    <label for="descricao">Descrição:</label>
-                    <input type="text" id="descricao" class="validate">
+                    <div class="col s6 input-field">
+                        <label>Codigo:</label>
+                        <input type="text" id="codigo" class="validate" maxlength="10">
+                    </div>
                 </div>
-                <div class="col s8">
-                    <label>Codigo:</label>
-                    <input type="text" id="codigo" class="validate" data-length="10">
+                <div class="col s12">
+                    <div class="col s6 input-field">
+                        <label for="descricao">Descrição:</label>
+                        <input type="text" id="descricao" class="validate" maxlength="40">
+                    </div>
                 </div>
-                <div class="col s4">
-                    <label>Unidade de Compra:</label>
-                    <select id="unidade_compra" class="browser-default">
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="kilo">Kilo</option>
-                        <option value="litro">Litro</option>
-                    </select>
-                </div>            
+                <div class="col s12">
+                    <div class="col s4">
+                        <label>Unidade de Compra:</label>
+                        <select id="unidade_compra" class="browser-default">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="kilo">Kilo</option>
+                            <option value="litro">Litro</option>
+                        </select>
+                    </div>  
+                </div>
                 <div class="col s12 center-align">
                     <button class="btn" onclick="carregarListMateriaPrima()">Pesquisar</button>
                 </div>
@@ -64,6 +70,6 @@
             </tbody>
         </table>
         <script type="text/javascript" src="../js/materia_prima.js"></script>
-        <script type="text/javascript" src="../scripts/materialize/js/materialize.min.js"/>
+        <script type="text/javascript" src="../scripts/materialize/js/materialize.js"></script>
     </body>
 </html>

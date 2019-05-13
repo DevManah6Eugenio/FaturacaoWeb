@@ -42,7 +42,7 @@ public class FornecedorDao implements Dao<Fornecedor> {
         EntityManager em = JPAUtil.getEntityManager();
 
         try {
-            Query query = em.createQuery("select f from Fornecedor left join fornecedor_materiaprima f " + montarWhere(filtro));
+            Query query = em.createQuery("select f from Fornecedor f left join f.materiPrima m " + montarWhere(filtro));
 
             if (!"".equals(filtro.getCnpj().trim())) {
                 query.setParameter("cnpj", "%" + filtro.getCnpj() + "%");
@@ -56,9 +56,8 @@ public class FornecedorDao implements Dao<Fornecedor> {
                 query.setParameter("nome_representante", "%" + filtro.getNomeRepresentante() + "%");
             }
 
-            if (filtro.getMateriPrima().size() > 0) {
-                List<MateriaPrima> listaMateria = filtro.getMateriPrima();
-                query.setParameter("nome_representante", listaMateria.get(0).getId());
+            if (filtro.getMateriPrima().get(0).getId() != 0) {
+                query.setParameter("materiPrima", filtro.getMateriPrima().get(0).getId());
             }
 
             listFornecedor = (List<Fornecedor>) query.getResultList();
@@ -89,9 +88,8 @@ public class FornecedorDao implements Dao<Fornecedor> {
             where += " and f.nomeRepresentante like :nome_representante ";
         }
 
-        if (filtro.getMateriPrima().size() > 0) {
-
-            where += " and f.nomeRepresentante like :nome_representante ";
+        if (filtro.getMateriPrima().get(0).getId() != 0) {
+            where += " and m.id = :materiPrima ";
         }
 
         return where;
