@@ -11,48 +11,29 @@ import java.util.List;
 public class FormulacaoBO implements BoInterface<Formulacao> {
 
     private FormulacaoDao dao;
-    
+
+    public FormulacaoBO() {
+        dao = new FormulacaoDao();
+    }
+
     @Override
     public void cadastrar(Formulacao obj) {
-        try {
-            dao = new FormulacaoDao();
-            dao.salvar(obj);
-        } finally {
-            dao = null;
-        }
-        System.out.println("cadastrar");
+        dao.salvar(obj);
     }
 
     @Override
     public void editar(Formulacao obj) {
-        try {
-            dao = new FormulacaoDao();
-            dao.editar(obj);
-        } finally {
-            dao = null;
-        }
-        System.out.println("editar");
+        dao.editar(obj);
     }
 
     @Override
     public Formulacao carregar(Formulacao obj) {
-        try {
-            dao = new FormulacaoDao();
-            return dao.carregar(obj);
-        } finally {
-            dao = null;
-        }
+        return dao.carregar(obj);
     }
 
     @Override
     public List<Formulacao> listar(Formulacao obj) {
-        try {
-            System.out.println("listar");
-            dao = new FormulacaoDao();
-            return dao.listar(obj);
-        } finally {
-            dao = null;
-        }
+        return dao.listar(obj);
     }
 
     @Override
@@ -60,5 +41,4 @@ public class FormulacaoBO implements BoInterface<Formulacao> {
         System.out.println("deletar");
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

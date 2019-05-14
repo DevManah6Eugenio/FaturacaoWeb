@@ -26,24 +26,33 @@
             </nav>
         </header>
         <div class="row">
-            <form action="FormulacaoControlador" method="post">
+            <form action="../FormulacaoControlador" method="post">
                 <input type="hidden" name="acao" value="cadastrar">
                 <input type="hidden" name="id">
+                <input type="hidden" name="cod_tela_consulta" value="103">
                 <div class="col s12">
-                    <label>Custo Estimado:</label>
-                    <input type="text" name="custo_estimado">
-                </div> 
-                <div class="col s12">
-                    <label>Observação:</label>
-                    <input type="text" name="observacao">
-                </div> 
-                <div class="col s12">
-                    <label>Valor Venda:</label>
-                    <input type="text" name="valor_venda">
+                    <div class="col s2 input-field">
+                        <input type="text" name="custo_estimado" maxlength="10">
+                        <label>Custo Estimado:</label>
+                    </div>
                 </div>
                 <div class="col s12">
-                    <label>Qtd. Estimada Produzida:</label>
-                    <input type="text" name="qtd_estimada_produzida">
+                    <div class="col s6 input-field">
+                        <input type="text" name="observacao" maxlength="40">
+                        <label>Observação:</label>
+                    </div> 
+                </div>
+                <div class="col s12">
+                    <div class="col s3 input-field">
+                        <input type="text" name="valor_venda" maxlength="10">
+                        <label>Valor Venda:</label>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="col s3 input-field">
+                        <input type="text" name="qtd_estimada_produzida" maxlength="10">
+                        <label>Qtd. Estimada Produzida:</label>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col s12">
@@ -59,33 +68,47 @@
                 </div>
                 <div id="impostos">
                     <div class="col s6">
-                        <label>ICMS:</label>
-                        <input type="text" name="icm">
+                        <div class="col s4 input-field">
+                            <input type="text" name="icm" maxlength="10">
+                            <label>ICMS:</label>
+                        </div>
                     </div>
                     <div class="col s6">
-                        <label>PIS:</label>
-                        <input type="text" name="pis">
+                        <div class="col s4 input-field">
+                            <input type="text" name="pis" maxlength="10">
+                            <label>PIS:</label>
+                        </div>
                     </div>
                     <div class="col s6">
-                        <label>CONFIS:</label>
-                        <input type="text" name="confis">
+                        <div class="col s4 input-field">
+                            <input type="text" name="confis" maxlength="10">
+                            <label>CONFIS:</label>
+                        </div>
                     </div>
                     <div class="col s6">
-                        <label>Comissão:</label>
-                        <input type="text" name="comissao">
-                    </div> 
+                        <div class="col s4 input-field">
+                            <input type="text" name="comissao" maxlength="10">
+                            <label>Comissão:</label>
+                        </div> 
+                    </div>
                     <div class="col s6">
-                        <label>Margem de Lucro:</label>
-                        <input type="text" name="margem_lucro">
-                    </div> 
+                        <div class="col s4 input-field">
+                            <input type="text" name="margem_lucro" maxlength="10">
+                            <label>Margem de Lucro:</label>
+                        </div> 
+                    </div>
                     <div class="col s6">
-                        <label>Despesa Fixa:</label>
-                        <input type="text" name="despesa_fixa">
-                    </div>                 
+                        <div class="col s4 input-field">
+                            <input type="text" name="despesa_fixa" maxlength="10">
+                            <label>Despesa Fixa:</label>
+                        </div>
+                    </div>
                     <div class="col s6">
-                        <label>Outros Descontos:</label>
-                        <input type="text" name="outros_descontos">
-                    </div>                
+                        <div class="col s4 input-field">
+                            <input type="text" name="outros_descontos" maxlength="10">
+                            <label>Outros Descontos:</label>
+                        </div>
+                    </div>
                 </div>
                 <div id="produtos">
                     <table>
